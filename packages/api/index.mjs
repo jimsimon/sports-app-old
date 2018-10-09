@@ -2,14 +2,12 @@ import express from 'express'
 import router from './router'
 import createKnex from './database/knex'
 import config from './knexfile'
-import objection from 'objection'
-import { middleware } from 'sharding'
+import { enableSharding, middleware } from 'sharding'
 
 function main () {
   const knex = createKnex(config)
 
-  const { Model } = objection
-  Model.knex(knex)
+  enableSharding(knex)
 
   const app = express()
 

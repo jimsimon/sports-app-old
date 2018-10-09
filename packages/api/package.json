@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.mjs",
   "scripts": {
+    "console": "node --experimental-modules --experimental-repl-await bin/console.mjs",
     "migrate:latest": "knex migrate:latest",
     "migrate:make": "knex migrate:make",
     "migrate:rollback": "knex migrate:rollback",

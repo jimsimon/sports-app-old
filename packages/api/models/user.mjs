@@ -1,5 +1,5 @@
 import { ShardedModel } from 'sharding'
 
-class User extends ShardedModel {
+export default class User extends ShardedModel {
 
 }
