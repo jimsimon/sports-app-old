@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "migrate:latest": "lerna run migrate:latest --scope api",
-    "migrate:make": "lerna run migrate:make --scope api",
-    "migrate:rollback": "lerna run migrate:rollback --scope api",
-    "seed:make": "lerna run seed:make --scope api",
-    "seed:run": "lerna run seed:run --scope api",
+    "migrate:latest": "lerna run migrate:latest --stream --scope api",
+    "migrate:make": "lerna run migrate:make --stream --scope api",
+    "migrate:rollback": "lerna run migrate:rollback --stream --scope api",
+    "seed:make": "lerna run seed:make --stream --scope api",
+    "seed:run": "lerna run seed:run --stream --scope api",
     "start:api": "lerna run start --stream --scope api"
   },
   "author": "",

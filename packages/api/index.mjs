@@ -1,11 +1,11 @@
 import express from 'express'
 import router from './router'
 import createKnex from './database/knex'
-import config from './knexfile'
+import configs from './knexfile'
 import { enableSharding, middleware } from 'sharding'
 
 function main () {
-  const knex = createKnex(config)
+  const knex = createKnex(configs)
 
   enableSharding(knex)
 
