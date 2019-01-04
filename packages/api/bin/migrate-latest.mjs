@@ -2,9 +2,11 @@ import path from 'path'
 import Umzug from 'umzug'
 import createKnex from '../database/knex'
 import configs from '../knexfile'
-import { Shard } from 'sharding'
+import { enableSharding, Shard } from 'sharding'
 
 const knex = createKnex(configs)
+
+enableSharding(knex)
 
 const umzug = new Umzug({
   storage: 'knex-umzug',
@@ -22,6 +24,7 @@ async function run () {
   const shards = await Shard.query()
   shards.forEach(async (shard) => {
     console.log(`Migrating shard: ${shard.name}`)
+    await shard.activate()
     const executed = await umzug.up()
     console.log(`Successfully ran ${executed.length} migrations`)
   })

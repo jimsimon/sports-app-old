@@ -1,9 +1,11 @@
-import als from "async-local-storage";
-import objection from 'objection'
+import als from "async-local-storage"
+import { ShardedModel } from '../sharded-model'
 
-const { Model } = objection
+export default class Shard extends ShardedModel {
+  static get schema () {
+    return 'public'
+  }
 
-export default class Shard extends Model {
   static get tableName () {
     return 'shards'
   }
@@ -23,6 +25,14 @@ export default class Shard extends Model {
   }
 
   async activate () {
-    Shard.activate(this.name)
+    return Shard.activate(this.name)
+  }
+
+  static deactivate () {
+    return Shard.deactivate()
+  }
+
+  deactivate () {
+    return Shard.activate(null)
   }
 }

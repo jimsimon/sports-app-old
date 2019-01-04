@@ -8,17 +8,17 @@ export class ShardedQueryBuilder extends QueryBuilder {
     super(modelClass)
     this.context({
       onBuild: builder => {
-        builder.withSchema(this.constructor.shard)
+        builder.withSchema(modelClass.schema)
       }
     })
-  }
-
-  static get shard () {
-    return als.get('shard')
   }
 }
 
 export class ShardedModel extends Model {
+  static get schema () {
+    return als.get('shard')
+  }
+
   static get QueryBuilder() {
     return ShardedQueryBuilder
   }
