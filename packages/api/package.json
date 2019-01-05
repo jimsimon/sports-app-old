@@ -5,9 +5,9 @@
   "main": "index.mjs",
   "scripts": {
     "console": "node --experimental-modules --experimental-repl-await bin/console.mjs",
-    "migrate:latest": "node --experimental-modules bin/migrate-latest.mjs ",
+    "migrate:latest": "node --experimental-modules bin/migrate-latest.mjs",
+    "migrate:rollback": "node --experimental-modules bin/migrate-rollback.mjs",
     "migrate:make": "knex migrate:make",
-    "migrate:rollback": "knex migrate:rollback",
     "seed:make": "knex seed:make",
     "seed:run": "knex seed:run",
     "start": "node --experimental-modules index.mjs",
