@@ -19,20 +19,33 @@ export default class Shard extends ShardedModel {
     this.updatedAt = new Date().toISOString()
   }
 
+  static async create (name) {
+    await Promise.all([
+      this.knex().schema.raw("CREATE SCHEMA ??", [name]),
+      Shard.query().insert({
+        name
+      })
+    ])
+  }
+
+  static async run (name, cb) {
+    try {
+      await this.activate(name)
+      await cb()
+    } catch (e) {
+      throw e
+    }
+  }
+
+  async run (cb) {
+    await Shard.run(this.name, cb)
+  }
+
   static async activate (name) {
-    als.scope()
-    als.set('shard', name)
+    als.set('shard', name, true)
   }
 
   async activate () {
     return Shard.activate(this.name)
-  }
-
-  static deactivate () {
-    return Shard.deactivate()
-  }
-
-  deactivate () {
-    return Shard.activate(null)
   }
 }
