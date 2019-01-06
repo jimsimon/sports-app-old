@@ -1,5 +1,5 @@
 import express from 'express'
-import { ProvisionController } from 'sharding'
+import ProvisionController from './controllers/provision-controller'
 
 const router = express.Router()
 

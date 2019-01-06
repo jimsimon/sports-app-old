@@ -20,12 +20,13 @@ export default class Shard extends ShardedModel {
   }
 
   static async create (name) {
-    await Promise.all([
+    const [_, shard] = await Promise.all([
       this.knex().schema.raw("CREATE SCHEMA ??", [name]),
       Shard.query().insert({
         name
       })
     ])
+    return shard
   }
 
   static async run (name, cb) {

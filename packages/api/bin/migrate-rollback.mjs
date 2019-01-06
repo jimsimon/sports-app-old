@@ -1,7 +1,9 @@
-import MigrationService from "../services/migration-service";
+import { MigrationService } from "sharding"
+import createKnex from "../database/knex"
+import configs from "../knexfile"
 
 async function run () {
-  const migrationService = new MigrationService()
+  const migrationService = new MigrationService(createKnex, configs)
   await migrationService.rollbackLastMigrationGroupForAllSchemas()
 }
 
