@@ -5,12 +5,14 @@
   "main": "index.js",
   "scripts": {
     "bootstrap": "lerna bootstrap",
+    "build": "lerna run build --stream",
     "migrate:latest": "lerna run migrate:latest --stream --scope api",
     "migrate:make": "lerna run migrate:make --stream --scope api",
     "migrate:rollback": "lerna run migrate:rollback --stream --scope api",
     "seed:make": "lerna run seed:make --stream --scope api",
     "seed:run": "lerna run seed:run --stream --scope api",
-    "start:api": "lerna run start --stream --scope api"
+    "start:api": "lerna run start --stream --scope api",
+    "start:ui": "lerna run start --stream --scope ui"
   },
   "author": "",
   "license": "MIT",
