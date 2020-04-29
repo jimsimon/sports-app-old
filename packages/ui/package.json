@@ -11,6 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "lit-element": "2.3.0",
+    "middle-router": "^2.2.0",
     "custom-elements-hmr-polyfill": "^1.0.0"
   },
   "devDependencies": {

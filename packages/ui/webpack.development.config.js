@@ -5,6 +5,9 @@ module.exports = merge(common, {
   mode: "development",
   devServer: {
     clientLogLevel: 'debug',
-    hot: true
+    hot: true,
+    historyApiFallback: {
+      index: '/'
+    }
   }
 })

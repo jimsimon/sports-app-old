@@ -1,8 +1,8 @@
-import { LitElement, html, customElement } from "lit-element"
+import { LitElement, html, customElement } from 'lit-element'
 
-@customElement('root-app')
+@customElement('sports-app')
 export class RootApp extends LitElement {
   render () {
-    return html`Sports Management App Loaded!`
+    return html`Sports Management App Loaded!<slot></slot>`
   }
 }

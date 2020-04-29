@@ -1,10 +1,14 @@
 const path = require('path')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: './src/index.ts',
   output: {
     path: path.resolve(__dirname, 'lib')
+  },
+  resolve: {
+    // Add `.ts`` as a resolvable extension
+    extensions: ['.ts', '.js']
   },
   module: {
     rules: [
